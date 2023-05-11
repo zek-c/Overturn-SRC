@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "OverTurn",
+  "version": "1.0",
+  "description": "OverTurn, The best Universal hack.",
+  "icons": {
+    "128": "image/128.png"
+  },
+  "host_permissions": [
+    "https://*.i-ready.com/",
+    "*://edpuzzle.com/"
+  ],
+  "permissions": [
+    "declarativeNetRequest"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "block_i_ready",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.i-ready.com/student/dashboard/home",
+        "*://edpuzzle.com/"
+      ],
+      "js": [
+        "main.js"
+      ]
+    }
+  ]
+}
